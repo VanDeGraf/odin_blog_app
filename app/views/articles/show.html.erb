@@ -1,16 +1,22 @@
-<h1><%= @article.title %></h1>
+<div class="container bg-light rounded shadow-sm mt-3 pb-1 pt-1">
+  <h1><%= @article.title %></h1>
 
-<p><%= @article.body %></p>
+  <p><%= @article.body %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %></li>
-</ul>
+  <div class="btn-group btn-group-sm" role="group">
+    <%= link_to "Edit", edit_article_path(@article), class: "btn btn-warning" %>
+    <%= link_to "Destroy", article_path(@article),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class: "btn btn-danger" %>
+  </div>
+</div>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
-
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+<div class="container">
+  <% unless @article.comments.empty? %>
+    <h4 class="mt-4 mb-3">Comments</h4>
+    <%= render @article.comments %>
+  <% end %>
+  <h4 class="mt-4 mb-3">Add a comment:</h4>
+  <%= render 'comments/form' %>
+</div>

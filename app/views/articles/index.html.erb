@@ -1,11 +1,7 @@
-<h1>Articles</h1>
-
-<ul>
-  <% @articles.each do |article| %>
-    <li>
-      <%= link_to article.title, article %>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to "New Article", new_article_path %>
+<div class="container-md mt-3">
+  <div class="list-group shadow-sm">
+    <% @articles.each do |article| %>
+      <a href="<%= article_path(article) %>" class="list-group-item list-group-item-action"><%= article.title %></a>
+    <% end %>
+  </div>
+</div>
