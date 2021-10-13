@@ -49,3 +49,4 @@ yarn-debug.log*
 /dataSources/
 /dataSources.local.xml
 docs
+/public/src/
